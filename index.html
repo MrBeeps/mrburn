@@ -2205,6 +2205,7 @@ setInterval(
 
 
 
+
 /*
 ===========================================================
  ZOOM FOTO
@@ -2212,114 +2213,63 @@ setInterval(
 */
 
 const zoomFoto =
-    document.getElementById(
-        "zoomFoto"
-    );
-
+    document.getElementById("zoomFoto");
 
 const immagineZoom =
-    document.getElementById(
-        "immagineZoom"
-    );
-
+    document.getElementById("immagineZoom");
 
 const chiudiZoom =
-    document.getElementById(
-        "chiudiZoom"
+    document.getElementById("chiudiZoom");
+
+
+/* APERTURA ZOOM SU TUTTE LE FOTO */
+
+document.addEventListener("click", function(event) {
+
+    const foto = event.target.closest(
+        ".foto-prodotto, #fotoPrincipaleCeneri"
     );
 
+    if (!foto) return;
+
+    immagineZoom.src = foto.src;
+    immagineZoom.alt = foto.alt;
+
+    zoomFoto.classList.add("attivo");
+
+});
 
 
-/*
- * CLIC SULLE FOTO
- */
+/* CHIUSURA CON LA X */
 
-document
-    .querySelectorAll(
-        ".foto-prodotto"
-    )
-    .forEach(
-        function(foto) {
+chiudiZoom.addEventListener("click", function() {
 
-            foto.addEventListener(
-                "click",
-                function() {
+    zoomFoto.classList.remove("attivo");
 
-                    immagineZoom.src =
-                        foto.src;
-
-                    zoomFoto.classList.add(
-                        "attivo"
-                    );
-
-                }
-            );
-
-        }
-    );
+});
 
 
+/* CHIUSURA CLICCANDO FUORI */
 
-/*
- * CHIUDI CON LA X
- */
+zoomFoto.addEventListener("click", function(event) {
 
-chiudiZoom.addEventListener(
-    "click",
-    function() {
-
-        zoomFoto.classList.remove(
-            "attivo"
-        );
-
+    if (event.target === zoomFoto) {
+        zoomFoto.classList.remove("attivo");
     }
-);
+
+});
 
 
+/* CHIUSURA CON ESC */
 
-/*
- * CHIUDI CLICCANDO FUORI DALLA FOTO
- */
+document.addEventListener("keydown", function(event) {
 
-zoomFoto.addEventListener(
-    "click",
-    function(event) {
-
-        if (
-            event.target === zoomFoto
-        ) {
-
-            zoomFoto.classList.remove(
-                "attivo"
-            );
-
-        }
-
+    if (event.key === "Escape") {
+        zoomFoto.classList.remove("attivo");
     }
-);
 
+});
 
-
-/*
- * CHIUDI CON ESC
- */
-
-document.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (
-            event.key === "Escape"
-        ) {
-
-            zoomFoto.classList.remove(
-                "attivo"
-            );
-
-        }
-
-    }
-);
 
 
 </script>
