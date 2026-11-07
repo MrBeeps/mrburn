@@ -948,7 +948,7 @@ L’opera è venduta senza cornice. La cornice visibile in foto è utilizzata es
     
 
 
-    
+
 <!-- ================================================= -->
 <!-- SEZIONE OPERE CENERE                              -->
 <!-- ================================================= -->
@@ -958,60 +958,67 @@ L’opera è venduta senza cornice. La cornice visibile in foto è utilizzata es
 <!-- OPERA 1                                           -->
 <!-- ================================================= -->
 
-<article class="prodotto">
+<article class="prodotto opera-cenere">
 
     <div class="galleria-ceneri">
 
+        <!-- FOTO PRINCIPALE -->
+
         <img
-            id="fotoPrincipaleCeneri1"
+            class="foto-prodotto foto-principale-cenere"
             src="Foto Vacum DK1.JPG"
             alt="Opera cenere 1"
         >
 
+        <!-- FRECCIA SINISTRA -->
+
         <button
             class="freccia-ceneri precedente"
             type="button"
-            onclick="cambiaFotoCeneri(0,-1)"
             aria-label="Foto precedente"
         >&#10094;</button>
+
+        <!-- FRECCIA DESTRA -->
 
         <button
             class="freccia-ceneri successiva"
             type="button"
-            onclick="cambiaFotoCeneri(0,1)"
             aria-label="Foto successiva"
         >&#10095;</button>
 
-        <div class="contatore-ceneri" id="contatoreCeneri1">
+        <!-- CONTATORE -->
+
+        <div class="contatore-ceneri">
             1 / 3
         </div>
 
     </div>
+
+    <!-- MINIATURE -->
 
     <div class="miniature-ceneri">
 
         <img
             src="Foto Vacum DK1.JPG"
             class="miniatura-cenere attiva"
-            onclick="selezionaFotoCeneri(0,0)"
-            alt="Miniatura 1"
+            alt="Foto 1"
         >
 
         <img
             src="Peni kiwi.JPG"
             class="miniatura-cenere"
-            onclick="selezionaFotoCeneri(0,1)"
-            alt="Miniatura 2"
+            alt="Foto 2"
         >
 
         <img
             src="Vacum Ratto delle Sabine.JPG"
             class="miniatura-cenere"
-            onclick="selezionaFotoCeneri(0,2)"
-            alt="Miniatura 3"
+            alt="Foto 3"
         >
 
     </div>
+
+    <!-- DATI OPERA -->
 
     <div class="contenuto">
 
@@ -1038,53 +1045,61 @@ L’opera è venduta senza cornice. La cornice visibile in foto è utilizzata es
 <!-- OPERA 2                                           -->
 <!-- ================================================= -->
 
-<article class="prodotto">
+<article class="prodotto opera-cenere">
 
     <div class="galleria-ceneri">
 
+        <!-- FOTO PRINCIPALE -->
+
         <img
-            id="fotoPrincipaleCeneri2"
+            class="foto-prodotto foto-principale-cenere"
             src="Cenere4.jpg"
             alt="Opera cenere 2"
         >
 
+        <!-- FRECCIA SINISTRA -->
+
         <button
             class="freccia-ceneri precedente"
             type="button"
-            onclick="cambiaFotoCeneri(1,-1)"
             aria-label="Foto precedente"
         >&#10094;</button>
+
+        <!-- FRECCIA DESTRA -->
 
         <button
             class="freccia-ceneri successiva"
             type="button"
-            onclick="cambiaFotoCeneri(1,1)"
             aria-label="Foto successiva"
         >&#10095;</button>
 
-        <div class="contatore-ceneri" id="contatoreCeneri2">
+        <!-- CONTATORE -->
+
+        <div class="contatore-ceneri">
             1 / 2
         </div>
 
     </div>
+
+    <!-- MINIATURE -->
 
     <div class="miniature-ceneri">
 
         <img
             src="Cenere4.jpg"
             class="miniatura-cenere attiva"
-            onclick="selezionaFotoCeneri(1,0)"
-            alt="Miniatura 1"
+            alt="Foto 1"
         >
 
         <img
             src="Cenere5.jpg"
             class="miniatura-cenere"
-            onclick="selezionaFotoCeneri(1,1)"
-            alt="Miniatura 2"
+            alt="Foto 2"
         >
 
     </div>
+
+    <!-- DATI OPERA -->
 
     <div class="contenuto">
 
@@ -1116,56 +1131,43 @@ L’opera è venduta senza cornice. La cornice visibile in foto è utilizzata es
 .galleria-ceneri {
 
     position: relative;
-
     width: 100%;
-
     overflow: hidden;
-
     background: #f7f4f0;
 
 }
 
-.galleria-ceneri img {
+/* FOTO PRINCIPALE */
+
+.galleria-ceneri .foto-principale-cenere {
 
     display: block;
-
     width: 100%;
-
-    max-height: 650px;
-
     height: auto;
-
+    max-height: 650px;
     object-fit: contain;
-
     cursor: zoom-in;
 
 }
-
 
 /* FRECCE */
 
 .freccia-ceneri {
 
     position: absolute;
-
     top: 50%;
-
     transform: translateY(-50%);
 
     background: rgba(0,0,0,0.55);
-
     color: white;
 
     border: none;
-
     border-radius: 50%;
 
     width: 42px;
-
     height: 42px;
 
     font-size: 20px;
-
     cursor: pointer;
 
     z-index: 5;
@@ -1190,38 +1192,30 @@ L’opera è venduta senza cornice. La cornice visibile in foto è utilizzata es
 
 }
 
-
 /* CONTATORE */
 
 .contatore-ceneri {
 
     position: absolute;
-
     bottom: 12px;
-
     left: 50%;
-
     transform: translateX(-50%);
 
     background: rgba(0,0,0,0.65);
-
     color: white;
 
     padding: 6px 12px;
-
     border-radius: 20px;
 
     font-size: 13px;
 
 }
 
-
 /* MINIATURE */
 
 .miniature-ceneri {
 
     display: flex;
-
     gap: 10px;
 
     padding: 12px;
@@ -1234,14 +1228,12 @@ L’opera è venduta senza cornice. La cornice visibile in foto è utilizzata es
 
 .miniatura-cenere {
 
-    width: 75px !important;
+    width: 75px;
+    height: 75px;
 
-    height: 75px !important;
-
-    object-fit: cover !important;
+    object-fit: cover;
 
     border: 2px solid transparent;
-
     border-radius: 6px;
 
     cursor: pointer;
@@ -1256,7 +1248,6 @@ L’opera è venduta senza cornice. La cornice visibile in foto è utilizzata es
 .miniatura-cenere.attiva {
 
     opacity: 1;
-
     border-color: #222;
 
 }
@@ -1270,121 +1261,105 @@ L’opera è venduta senza cornice. La cornice visibile in foto è utilizzata es
 
 <script>
 
-// ELENCO DELLE GALLERIE
+document.querySelectorAll(".opera-cenere").forEach(function(opera) {
 
-const gallerieCeneri = [
-
-    {
-        principale: "fotoPrincipaleCeneri1",
-
-        contatore: "contatoreCeneri1",
-
-        miniature: [
-            "Cenere1.jpg",
-            "Cenere2.jpg",
-            "Cenere3.jpg"
-        ],
-
-        indice: 0
-
-    },
-
-    {
-        principale: "fotoPrincipaleCeneri2",
-
-        contatore: "contatoreCeneri2",
-
-        miniature: [
-            "Cenere4.jpg",
-            "Cenere5.jpg"
-        ],
-
-        indice: 0
-
-    }
-
-];
-
-
-// AGGIORNA GALLERIA
-
-function aggiornaGalleriaCeneri(numeroOpera) {
-
-    const galleria = gallerieCeneri[numeroOpera];
-
-    document.getElementById(
-        galleria.principale
-    ).src = galleria.miniature[galleria.indice];
-
-
-    document.getElementById(
-        galleria.contatore
-    ).innerText =
-        (galleria.indice + 1) +
-        " / " +
-        galleria.miniature.length;
-
-
-    const articoli = document.querySelectorAll(
-        ".prodotto"
+    const fotoPrincipale = opera.querySelector(
+        ".foto-principale-cenere"
     );
 
-    const miniature = articoli[numeroOpera].querySelectorAll(
+    const miniature = opera.querySelectorAll(
         ".miniatura-cenere"
     );
 
+    const contatore = opera.querySelector(
+        ".contatore-ceneri"
+    );
 
-    miniature.forEach(function(foto, indice) {
+    const precedente = opera.querySelector(
+        ".freccia-ceneri.precedente"
+    );
 
-        foto.classList.toggle(
-            "attiva",
-            indice === galleria.indice
-        );
+    const successiva = opera.querySelector(
+        ".freccia-ceneri.successiva"
+    );
+
+    let indice = 0;
+
+
+    // AGGIORNA GALLERIA
+
+    function aggiornaGalleria() {
+
+        fotoPrincipale.src = miniature[indice].src;
+
+        contatore.textContent =
+            (indice + 1) + " / " + miniature.length;
+
+        miniature.forEach(function(foto, posizione) {
+
+            foto.classList.toggle(
+                "attiva",
+                posizione === indice
+            );
+
+        });
+
+    }
+
+
+    // FOTO PRECEDENTE
+
+    precedente.addEventListener("click", function() {
+
+        indice--;
+
+        if (indice < 0) {
+            indice = miniature.length - 1;
+        }
+
+        aggiornaGalleria();
 
     });
 
-}
+
+    // FOTO SUCCESSIVA
+
+    successiva.addEventListener("click", function() {
+
+        indice++;
+
+        if (indice >= miniature.length) {
+            indice = 0;
+        }
+
+        aggiornaGalleria();
+
+    });
 
 
-// CAMBIA FOTOGRAFIA
+    // CLIC SULLE MINIATURE
 
-function cambiaFotoCeneri(numeroOpera, direzione) {
+    miniature.forEach(function(foto, posizione) {
 
-    const galleria = gallerieCeneri[numeroOpera];
+        foto.addEventListener("click", function() {
 
-    galleria.indice += direzione;
+            indice = posizione;
 
+            aggiornaGalleria();
 
-    if (galleria.indice >= galleria.miniature.length) {
+        });
 
-        galleria.indice = 0;
-
-    }
-
-
-    if (galleria.indice < 0) {
-
-        galleria.indice = galleria.miniature.length - 1;
-
-    }
+    });
 
 
-    aggiornaGalleriaCeneri(numeroOpera);
+    // INIZIALIZZA GALLERIA
 
-}
+    aggiornaGalleria();
 
-
-// SELEZIONA MINIATURA
-
-function selezionaFotoCeneri(numeroOpera, indice) {
-
-    gallerieCeneri[numeroOpera].indice = indice;
-
-    aggiornaGalleriaCeneri(numeroOpera);
-
-}
+});
 
 </script>
+
 
 
 
