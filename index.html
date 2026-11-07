@@ -989,7 +989,7 @@ Nota: l'opera è venduta senza cornice. Quella visibile in fotografia è esclusi
 
         <div class="contatore-ceneri">
             <span id="contatoreCeneri">1 / 3</span>
-            style="display: none;" 
+        
         </div>
 
     </div>
@@ -1192,6 +1192,8 @@ const opereCenere = [
         nascita: "01/10/2026",
 
         morte: "01/11/2026"
+        nascosta: false
+    
     },
 
     {
@@ -1204,6 +1206,7 @@ const opereCenere = [
         nascita: "03/11/2026",
 
         morte: "03/12/2026"
+        nascosta: true
     },
 
     {
@@ -1216,6 +1219,7 @@ const opereCenere = [
         nascita: "02/12/2026",
 
         morte: "01/01/2027"
+        nascosta: true
     }
 
 ];
@@ -1255,10 +1259,12 @@ let indiceOperaCenere = 0;
 
 
 // ================================================
-// MOSTRA OPERA SELEZIONATA
+// MOSTRA OPERA SELEZIONATA 
 // ================================================
 
 function mostraOperaCenere(indice) {
+        // MOSTRA SOLO LA PRIMA OPERA
+   if (opereCenere[indice].nascosta) return;
 
     const opera = opereCenere[indice];
 
@@ -1347,6 +1353,7 @@ function creaMiniatureCeneri() {
     miniatureCeneri.innerHTML = "";
 
     opereCenere.forEach(function(opera, indice) {
+        if (opera.nascosta) return;
 
         const miniatura = document.createElement("img");
 
