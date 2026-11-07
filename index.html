@@ -948,91 +948,84 @@ L’opera è venduta senza cornice. La cornice visibile in foto è utilizzata es
     
 
 
-
 <!-- ================================================= -->
 <!-- SEZIONE OPERE CENERE                              -->
 <!-- ================================================= -->
 
-
-<!-- ================================================= -->
-<!-- OPERA 1                                           -->
-<!-- ================================================= -->
-
 <article class="prodotto opera-cenere">
+
+    <!-- GALLERIA FOTOGRAFICA -->
 
     <div class="galleria-ceneri">
 
-        <!-- FOTO PRINCIPALE -->
-
         <img
-            class="foto-prodotto foto-principale-cenere"
+            id="fotoPrincipaleCeneri"
             src="Foto Vacum DK1.JPG"
-            alt="Opera cenere 1"
+            alt="Opera bruciata"
         >
 
-        <!-- FRECCIA SINISTRA -->
+        <!-- FOTO PRECEDENTE -->
 
         <button
             class="freccia-ceneri precedente"
             type="button"
-            aria-label="Foto precedente"
+            onclick="cambiaOperaCenere(-1)"
+            aria-label="Opera precedente"
         >&#10094;</button>
 
-        <!-- FRECCIA DESTRA -->
+        <!-- FOTO SUCCESSIVA -->
 
         <button
             class="freccia-ceneri successiva"
             type="button"
-            aria-label="Foto successiva"
+            onclick="cambiaOperaCenere(1)"
+            aria-label="Opera successiva"
         >&#10095;</button>
 
         <!-- CONTATORE -->
 
         <div class="contatore-ceneri">
-            1 / 3
+            <span id="contatoreCeneri">1 / 3</span>
         </div>
 
     </div>
 
-    <!-- MINIATURE -->
 
-    <div class="miniature-ceneri">
+    <!-- MINIATURE DELLE OPERE -->
 
-        <img
-            src="Foto Vacum DK1.JPG"
-            class="miniatura-cenere attiva"
-            alt="Foto 1"
-        >
+    <div
+        class="miniature-ceneri"
+        id="miniatureCeneri"
+    ></div>
 
-        <img
-            src="Peni kiwi.JPG"
-            class="miniatura-cenere"
-            alt="Foto 2"
-        >
 
-        <img
-            src="Vacum Ratto delle Sabine.JPG"
-            class="miniatura-cenere"
-            alt="Foto 3"
-        >
-
-    </div>
-
-    <!-- DATI OPERA -->
+    <!-- INFORMAZIONI OPERA SELEZIONATA -->
 
     <div class="contenuto">
 
-        <h2>Opera cenere 1</h2>
+        <h2 id="titoloOperaCenere">
+            Opera cenere 1
+        </h2>
 
-        <p class="descrizione">
-            Descrizione della prima opera.
+        <p
+            class="descrizione"
+            id="descrizioneOperaCenere"
+        >
+            Opera che ha concluso il proprio ciclo vitale
+            ed è diventata cenere.
         </p>
 
-        <div class="data">
+        <div
+            class="data"
+            id="nascitaOperaCenere"
+        >
             Data di nascita: 01/10/2026
         </div>
 
-        <div class="data">
+        <div
+            class="data"
+            id="morteOperaCenere"
+        >
             Data di morte: 01/11/2026
         </div>
 
@@ -1042,88 +1035,7 @@ L’opera è venduta senza cornice. La cornice visibile in foto è utilizzata es
 
 
 <!-- ================================================= -->
-<!-- OPERA 2                                           -->
-<!-- ================================================= -->
-
-<article class="prodotto opera-cenere">
-
-    <div class="galleria-ceneri">
-
-        <!-- FOTO PRINCIPALE -->
-
-        <img
-            class="foto-prodotto foto-principale-cenere"
-            src="Cenere4.jpg"
-            alt="Opera cenere 2"
-        >
-
-        <!-- FRECCIA SINISTRA -->
-
-        <button
-            class="freccia-ceneri precedente"
-            type="button"
-            aria-label="Foto precedente"
-        >&#10094;</button>
-
-        <!-- FRECCIA DESTRA -->
-
-        <button
-            class="freccia-ceneri successiva"
-            type="button"
-            aria-label="Foto successiva"
-        >&#10095;</button>
-
-        <!-- CONTATORE -->
-
-        <div class="contatore-ceneri">
-            1 / 2
-        </div>
-
-    </div>
-
-    <!-- MINIATURE -->
-
-    <div class="miniature-ceneri">
-
-        <img
-            src="Cenere4.jpg"
-            class="miniatura-cenere attiva"
-            alt="Foto 1"
-        >
-
-        <img
-            src="Cenere5.jpg"
-            class="miniatura-cenere"
-            alt="Foto 2"
-        >
-
-    </div>
-
-    <!-- DATI OPERA -->
-
-    <div class="contenuto">
-
-        <h2>Opera cenere 2</h2>
-
-        <p class="descrizione">
-            Descrizione della seconda opera.
-        </p>
-
-        <div class="data">
-            Data di nascita: 15/01/2027
-        </div>
-
-        <div class="data">
-            Data di morte: 14/02/2027
-        </div>
-
-    </div>
-
-</article>
-
-
-<!-- ================================================= -->
-<!-- CSS GALLERIE OPERE CENERE                         -->
+<!-- CSS GALLERIA OPERE CENERE                         -->
 <!-- ================================================= -->
 
 <style>
@@ -1137,9 +1049,7 @@ L’opera è venduta senza cornice. La cornice visibile in foto è utilizzata es
 
 }
 
-/* FOTO PRINCIPALE */
-
-.galleria-ceneri .foto-principale-cenere {
+.galleria-ceneri #fotoPrincipaleCeneri {
 
     display: block;
     width: 100%;
@@ -1149,6 +1059,7 @@ L’opera è venduta senza cornice. La cornice visibile in foto è utilizzata es
     cursor: zoom-in;
 
 }
+
 
 /* FRECCE */
 
@@ -1181,16 +1092,13 @@ L’opera è venduta senza cornice. La cornice visibile in foto è utilizzata es
 }
 
 .freccia-ceneri.precedente {
-
     left: 12px;
-
 }
 
 .freccia-ceneri.successiva {
-
     right: 12px;
-
 }
+
 
 /* CONTATORE */
 
@@ -1211,6 +1119,7 @@ L’opera è venduta senza cornice. La cornice visibile in foto è utilizzata es
 
 }
 
+
 /* MINIATURE */
 
 .miniature-ceneri {
@@ -1228,8 +1137,8 @@ L’opera è venduta senza cornice. La cornice visibile in foto è utilizzata es
 
 .miniatura-cenere {
 
-    width: 75px;
-    height: 75px;
+    width: 85px;
+    height: 85px;
 
     object-fit: cover;
 
@@ -1237,7 +1146,6 @@ L’opera è venduta senza cornice. La cornice visibile in foto è utilizzata es
     border-radius: 6px;
 
     cursor: pointer;
-
     opacity: 0.65;
 
     flex-shrink: 0;
@@ -1256,111 +1164,216 @@ L’opera è venduta senza cornice. La cornice visibile in foto è utilizzata es
 
 
 <!-- ================================================= -->
-<!-- JAVASCRIPT GALLERIE OPERE CENERE                  -->
+<!-- JAVASCRIPT OPERE CENERE                           -->
 <!-- ================================================= -->
 
 <script>
 
-document.querySelectorAll(".opera-cenere").forEach(function(opera) {
+// ================================================
+// ELENCO DI TUTTE LE OPERE BRUCIATE
+// ================================================
 
-    const fotoPrincipale = opera.querySelector(
-        ".foto-principale-cenere"
-    );
+// PER AGGIUNGERE UN'OPERA:
+// Copia un blocco e modifica foto, titolo e date.
 
-    const miniature = opera.querySelectorAll(
-        ".miniatura-cenere"
-    );
+const opereCenere = [
 
-    const contatore = opera.querySelector(
-        ".contatore-ceneri"
-    );
+    {
+        foto: "Foto Vacum DK1.JPG",
 
-    const precedente = opera.querySelector(
-        ".freccia-ceneri.precedente"
-    );
+        titolo: "Opera Vacum DK1",
 
-    const successiva = opera.querySelector(
-        ".freccia-ceneri.successiva"
-    );
+        descrizione: "Opera che ha concluso il proprio ciclo vitale ed è diventata cenere.",
 
-    let indice = 0;
+        nascita: "01/10/2026",
+
+        morte: "01/11/2026"
+    },
+
+    {
+        foto: "Peni kiwi.JPG",
+
+        titolo: "Opera Peni Kiwi",
+
+        descrizione: "Opera che ha concluso il proprio ciclo vitale ed è diventata cenere.",
+
+        nascita: "03/11/2026",
+
+        morte: "03/12/2026"
+    },
+
+    {
+        foto: "Vacum Ratto delle Sabine.JPG",
+
+        titolo: "Opera Vacum Ratto delle Sabine",
+
+        descrizione: "Opera che ha concluso il proprio ciclo vitale ed è diventata cenere.",
+
+        nascita: "02/12/2026",
+
+        morte: "01/01/2027"
+    }
+
+];
 
 
-    // AGGIORNA GALLERIA
+// ================================================
+// ELEMENTI HTML
+// ================================================
 
-    function aggiornaGalleria() {
+const fotoPrincipaleCeneri =
+    document.getElementById("fotoPrincipaleCeneri");
 
-        fotoPrincipale.src = miniature[indice].src;
+const miniatureCeneri =
+    document.getElementById("miniatureCeneri");
 
-        contatore.textContent =
-            (indice + 1) + " / " + miniature.length;
+const contatoreCeneri =
+    document.getElementById("contatoreCeneri");
 
-        miniature.forEach(function(foto, posizione) {
+const titoloOperaCenere =
+    document.getElementById("titoloOperaCenere");
 
-            foto.classList.toggle(
+const descrizioneOperaCenere =
+    document.getElementById("descrizioneOperaCenere");
+
+const nascitaOperaCenere =
+    document.getElementById("nascitaOperaCenere");
+
+const morteOperaCenere =
+    document.getElementById("morteOperaCenere");
+
+
+// ================================================
+// OPERA SELEZIONATA
+// ================================================
+
+let indiceOperaCenere = 0;
+
+
+// ================================================
+// MOSTRA OPERA SELEZIONATA
+// ================================================
+
+function mostraOperaCenere(indice) {
+
+    const opera = opereCenere[indice];
+
+    indiceOperaCenere = indice;
+
+
+    // FOTO
+
+    fotoPrincipaleCeneri.src = opera.foto;
+
+    fotoPrincipaleCeneri.alt = opera.titolo;
+
+
+    // TITOLO
+
+    titoloOperaCenere.textContent = opera.titolo;
+
+
+    // DESCRIZIONE
+
+    descrizioneOperaCenere.textContent = opera.descrizione;
+
+
+    // DATE
+
+    nascitaOperaCenere.textContent =
+        "Data di nascita: " + opera.nascita;
+
+    morteOperaCenere.textContent =
+        "Data di morte: " + opera.morte;
+
+
+    // CONTATORE
+
+    contatoreCeneri.textContent =
+        (indice + 1) + " / " + opereCenere.length;
+
+
+    // MINIATURE ATTIVE
+
+    miniatureCeneri
+        .querySelectorAll(".miniatura-cenere")
+        .forEach(function(miniatura, posizione) {
+
+            miniatura.classList.toggle(
                 "attiva",
                 posizione === indice
             );
 
         });
 
+}
+
+
+// ================================================
+// CAMBIA OPERA CON LE FRECCE
+// ================================================
+
+function cambiaOperaCenere(direzione) {
+
+    indiceOperaCenere += direzione;
+
+    if (indiceOperaCenere >= opereCenere.length) {
+
+        indiceOperaCenere = 0;
+
     }
 
+    if (indiceOperaCenere < 0) {
 
-    // FOTO PRECEDENTE
+        indiceOperaCenere = opereCenere.length - 1;
 
-    precedente.addEventListener("click", function() {
+    }
 
-        indice--;
+    mostraOperaCenere(indiceOperaCenere);
 
-        if (indice < 0) {
-            indice = miniature.length - 1;
-        }
-
-        aggiornaGalleria();
-
-    });
+}
 
 
-    // FOTO SUCCESSIVA
+// ================================================
+// CREA AUTOMATICAMENTE LE MINIATURE
+// ================================================
 
-    successiva.addEventListener("click", function() {
+function creaMiniatureCeneri() {
 
-        indice++;
+    miniatureCeneri.innerHTML = "";
 
-        if (indice >= miniature.length) {
-            indice = 0;
-        }
+    opereCenere.forEach(function(opera, indice) {
 
-        aggiornaGalleria();
+        const miniatura = document.createElement("img");
 
-    });
+        miniatura.src = opera.foto;
 
+        miniatura.alt = opera.titolo;
 
-    // CLIC SULLE MINIATURE
+        miniatura.className = "miniatura-cenere";
 
-    miniature.forEach(function(foto, posizione) {
+        miniatura.addEventListener("click", function() {
 
-        foto.addEventListener("click", function() {
-
-            indice = posizione;
-
-            aggiornaGalleria();
+            mostraOperaCenere(indice);
 
         });
 
+        miniatureCeneri.appendChild(miniatura);
+
     });
 
+}
 
-    // INIZIALIZZA GALLERIA
 
-    aggiornaGalleria();
+// ================================================
+// AVVIO GALLERIA
+// ================================================
 
-});
+creaMiniatureCeneri();
+
+mostraOperaCenere(0);
 
 </script>
-
-
 
 
 
