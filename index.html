@@ -924,7 +924,7 @@ Nota: l'opera è venduta senza cornice. Quella visibile in fotografia è esclusi
 
             <div class="data">
 
-                Disponibile dal 01/10/2027
+                Disponibile dal 01/01/2027
 
             </div>
 
@@ -1307,7 +1307,7 @@ function mostraOperaCenere(indice) {
     // CONTATORE
 
     contatoreCeneri.textContent =
-        (indice + 1) + " / " + opereCenere.length;
+        (opereVisibili.indexOf(opera) + 1) + " / " + opereVisibili.length
 
 
     // MINIATURE ATTIVE
@@ -1332,21 +1332,25 @@ function mostraOperaCenere(indice) {
 
 function cambiaOperaCenere(direzione) {
 
-    indiceOperaCenere += direzione;
+    let posizione = opereVisibili.indexOf(
+        opereCenere[indiceOperaCenere]
+    );
 
-    if (indiceOperaCenere >= opereCenere.length) {
+    posizione += direzione;
 
-        indiceOperaCenere = 0;
-
+    if (posizione >= opereVisibili.length) {
+        posizione = 0;
     }
 
-    if (indiceOperaCenere < 0) {
-
-        indiceOperaCenere = opereCenere.length - 1;
-
+    if (posizione < 0) {
+        posizione = opereVisibili.length - 1;
     }
 
-    mostraOperaCenere(indiceOperaCenere);
+    const nuovaOpera = opereVisibili[posizione];
+
+    const nuovoIndice = opereCenere.indexOf(nuovaOpera);
+
+    mostraOperaCenere(nuovoIndice);
 
 }
 
