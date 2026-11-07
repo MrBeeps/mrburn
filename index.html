@@ -618,13 +618,17 @@
 
 .zoom-foto img {
 
-    max-width: 95%;
-    max-height: 95%;
+ display: block;
 
-    width: auto;
-    height: auto;
+    width: 95vw;
+    height: 90vh;
+
+    max-width: 95vw;
+    max-height: 90vh;
 
     object-fit: contain;
+
+    cursor: zoom-out;
 
 }
 
@@ -989,7 +993,7 @@ Nota: l'opera è venduta senza cornice. Quella visibile in fotografia è esclusi
 
         <div class="contatore-ceneri">
             <span id="contatoreCeneri">1 / 3</span>
-        
+            style="display: none;" 
         </div>
 
     </div>
@@ -1191,7 +1195,7 @@ const opereCenere = [
 
         nascita: "01/10/2026",
 
-        morte: "01/11/2026"
+        morte: "01/11/2026",
         nascosta: false
     
     },
@@ -1205,7 +1209,7 @@ const opereCenere = [
 
         nascita: "03/11/2026",
 
-        morte: "03/12/2026"
+        morte: "03/12/2026",
         nascosta: true
     },
 
@@ -1218,7 +1222,7 @@ const opereCenere = [
 
         nascita: "02/12/2026",
 
-        morte: "01/01/2027"
+        morte: "01/01/2027",
         nascosta: true
     }
 
@@ -2207,32 +2211,31 @@ setInterval(
 
 
 /*
+/*
 ===========================================================
  ZOOM FOTO
 ===========================================================
 */
 
-const zoomFoto =
-    document.getElementById("zoomFoto");
+const zoomFoto = document.getElementById("zoomFoto");
 
-const immagineZoom =
-    document.getElementById("immagineZoom");
+const immagineZoom = document.getElementById("immagineZoom");
 
-const chiudiZoom =
-    document.getElementById("chiudiZoom");
+const chiudiZoom = document.getElementById("chiudiZoom");
 
 
-/* APERTURA ZOOM SU TUTTE LE FOTO */
+// APERTURA ZOOM
 
 document.addEventListener("click", function(event) {
 
     const foto = event.target.closest(
-        ".foto-prodotto, #fotoPrincipaleCeneri"
+        ".foto-prodotto, #fotoPrincipaleCeneri, .miniatura-cenere"
     );
 
     if (!foto) return;
 
     immagineZoom.src = foto.src;
+
     immagineZoom.alt = foto.alt;
 
     zoomFoto.classList.add("attivo");
@@ -2240,7 +2243,7 @@ document.addEventListener("click", function(event) {
 });
 
 
-/* CHIUSURA CON LA X */
+// CHIUSURA CON X
 
 chiudiZoom.addEventListener("click", function() {
 
@@ -2249,27 +2252,30 @@ chiudiZoom.addEventListener("click", function() {
 });
 
 
-/* CHIUSURA CLICCANDO FUORI */
+// CHIUSURA FUORI DALL'IMMAGINE
 
 zoomFoto.addEventListener("click", function(event) {
 
     if (event.target === zoomFoto) {
+
         zoomFoto.classList.remove("attivo");
+
     }
 
 });
 
 
-/* CHIUSURA CON ESC */
+// CHIUSURA CON ESC
 
 document.addEventListener("keydown", function(event) {
 
     if (event.key === "Escape") {
+
         zoomFoto.classList.remove("attivo");
+
     }
 
 });
-
 
 
 </script>
