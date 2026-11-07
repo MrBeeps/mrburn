@@ -946,37 +946,76 @@ L’opera è venduta senza cornice. La cornice visibile in foto è utilizzata es
 
 
     
+
 <!-- ================================================= -->
 <!-- OPERE CENERE                                      -->
 <!-- ================================================= -->
 
 <article class="prodotto">
 
-    <!-- FOTOGRAFIE OPERE -->
+    <!-- GALLERIA FOTOGRAFICA -->
 
-    <img
-        class="foto-prodotto"
-        src="Foto Vacum DK1.JPG"
-        alt="Opera - Foto 1"
-    >
+    <div class="galleria-ceneri">
 
-    <img
-        class="foto-prodotto"
-        src="Foto Vacum DK1.JPG"
-        alt="Opera - Foto 2"
-    >
+        <img
+            class="foto-prodotto foto-cenere"
+            src="Foto Vacum DK1.JPG"
+            alt="Opera bruciata - Foto 1"
+        >
 
-    <img
-        class="foto-prodotto"
-        src="Foto Vacum DK1.JPG"
-        alt="Opera - Foto 3"
-    >
+        <img
+            class="foto-prodotto foto-cenere"
+            src="Foto Vacum DK1.JPG"
+            alt="Opera bruciata - Foto 2"
+            style="display: none;"
+        >
 
-    <img
-        class="foto-prodotto"
-        src="Foto Vacum DK1.JPG"
-        alt="Opera - Foto 4"
-    >
+        <img
+            class="foto-prodotto foto-cenere"
+            src="Foto Vacum DK1.JPG"
+            alt="Opera bruciata - Foto 3"
+            style="display: none;"
+        >
+
+        <img
+            class="foto-prodotto foto-cenere"
+            src="Foto-4.png"
+            alt="Opera bruciata - Foto 4"
+            style="display: none;"
+        >
+
+        <!-- FRECCIA PRECEDENTE -->
+
+        <button
+            class="freccia-ceneri precedente"
+            type="button"
+            onclick="cambiaFotoCeneri(-1)"
+            aria-label="Fotografia precedente"
+        >
+            &#10094;
+        </button>
+
+        <!-- FRECCIA SUCCESSIVA -->
+
+        <button
+            class="freccia-ceneri successiva"
+            type="button"
+            onclick="cambiaFotoCeneri(1)"
+            aria-label="Fotografia successiva"
+        >
+            &#10095;
+        </button>
+
+        <!-- CONTATORE FOTO -->
+
+        <div class="contatore-ceneri">
+            <span id="numeroFotoCeneri">1 / 4</span>
+        </div>
+
+    </div>
+
+
+    <!-- CONTENUTO -->
 
     <div class="contenuto">
 
@@ -985,13 +1024,22 @@ L’opera è venduta senza cornice. La cornice visibile in foto è utilizzata es
         </h2>
 
         <p class="descrizione">
+
             Una raccolta delle opere che hanno concluso
             il loro ciclo vitale e sono diventate cenere.
+
+            Ogni opera ha una propria storia, un momento
+            di nascita e un momento di morte.
+
         </p>
+
+        <!-- DATA DI NASCITA -->
 
         <div class="data">
             Data di nascita: 01/10/2026
         </div>
+
+        <!-- DATA DI MORTE -->
 
         <div class="data">
             Data di morte: 31/12/2026
@@ -1001,6 +1049,156 @@ L’opera è venduta senza cornice. La cornice visibile in foto è utilizzata es
 
 </article>
 
+
+<!-- ================================================= -->
+<!-- STILE GALLERIA OPERE CENERE                       -->
+<!-- ================================================= -->
+
+<style>
+
+.galleria-ceneri {
+
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    background: #f7f4f0;
+
+}
+
+.galleria-ceneri .foto-cenere {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    max-height: 650px;
+
+    object-fit: contain;
+
+    cursor: zoom-in;
+
+}
+
+/* FRECCE */
+
+.freccia-ceneri {
+
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background: rgba(0,0,0,0.55);
+
+    color: white;
+
+    border: none;
+
+    border-radius: 50%;
+
+    width: 42px;
+
+    height: 42px;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    z-index: 5;
+
+}
+
+.freccia-ceneri:hover {
+
+    background: rgba(0,0,0,0.85);
+
+}
+
+.freccia-ceneri.precedente {
+
+    left: 12px;
+
+}
+
+.freccia-ceneri.successiva {
+
+    right: 12px;
+
+}
+
+/* CONTATORE */
+
+.contatore-ceneri {
+
+    position: absolute;
+
+    bottom: 12px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: rgba(0,0,0,0.65);
+
+    color: white;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+}
+
+</style>
+
+
+<!-- ================================================= -->
+<!-- JAVASCRIPT GALLERIA                               -->
+<!-- ================================================= -->
+
+<script>
+
+let indiceFotoCeneri = 0;
+
+const fotoCeneri = document.querySelectorAll(
+    ".foto-cenere"
+);
+
+function cambiaFotoCeneri(direzione) {
+
+    fotoCeneri[indiceFotoCeneri].style.display = "none";
+
+    indiceFotoCeneri += direzione;
+
+    if (indiceFotoCeneri >= fotoCeneri.length) {
+
+        indiceFotoCeneri = 0;
+
+    }
+
+    if (indiceFotoCeneri < 0) {
+
+        indiceFotoCeneri = fotoCeneri.length - 1;
+
+    }
+
+    fotoCeneri[indiceFotoCeneri].style.display = "block";
+
+    document.getElementById(
+        "numeroFotoCeneri"
+    ).innerText =
+        (indiceFotoCeneri + 1) + " / " + fotoCeneri.length;
+
+}
+
+</script>
 
 
 
