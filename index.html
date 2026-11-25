@@ -1529,11 +1529,10 @@ header.hero {
 <style>
 
 .galleria-ceneri {
-
     position: relative;
     width: 100%;
     overflow: hidden;
-    background: #f7f4f0;
+    background: #151513;
 
 }
 
@@ -1541,11 +1540,14 @@ header.hero {
 
     display: block;
     width: 100%;
-    height: auto;
-    max-height: 650px;
+    height: 380px;
+    max-width: 100%;
     object-fit: contain;
+    object-position: center;
+    background: #151513;
+    padding: 12px;
     cursor: zoom-in;
-
+    transition: transform 0.4s ease;
 }
 
 
@@ -1611,31 +1613,23 @@ header.hero {
 /* MINIATURE */
 
 .miniature-ceneri {
-
     display: flex;
     gap: 10px;
-
     padding: 12px;
-
     overflow-x: auto;
-
-    background: white;
-
+    background: #1c1c1a;
 }
 
 .miniatura-cenere {
-
     width: 85px;
     height: 85px;
-
-    object-fit: cover;
-
+    object-fit: contain;
+    background: #151513;
+    padding: 4px;
     border: 2px solid transparent;
-    border-radius: 6px;
-
+    border-radius: 3px;
     cursor: pointer;
     opacity: 0.65;
-
     flex-shrink: 0;
 
 }
@@ -1644,10 +1638,16 @@ header.hero {
 .miniatura-cenere.attiva {
 
     opacity: 1;
-    border-color: #222;
+    border-color: #b94331;
 
 }
+@media (max-width: 600px) {
 
+    .galleria-ceneri #fotoPrincipaleCeneri {
+        height: 300px;
+    }
+
+}
 </style>
 
 
