@@ -2663,8 +2663,9 @@ setInterval(
 
 
 /*
+/*
 ===========================================================
- ZOOM FOTO
+ ZOOM FOTO - TUTTE LE IMMAGINI
 ===========================================================
 */
 
@@ -2672,57 +2673,69 @@ const zoomFoto = document.getElementById("zoomFoto");
 const immagineZoom = document.getElementById("immagineZoom");
 const chiudiZoom = document.getElementById("chiudiZoom");
 
-// APERTURA ZOOM
-document.addEventListener("click", function(event) {
+if (zoomFoto && immagineZoom && chiudiZoom) {
 
-    const foto = event.target.closest(
-        ".foto-prodotto, #fotoPrincipaleCeneri, .miniatura-cenere"
-    );
+    // APERTURA CLICCANDO SU QUALSIASI FOTO
+    document.addEventListener("click", function(event) {
 
-    if (!foto) return;
+        const foto = event.target.closest("img");
 
-    immagineZoom.src = foto.src;
-    immagineZoom.alt = foto.alt || "Opera ingrandita";
+        if (!foto) return;
 
-    zoomFoto.classList.add("attivo");
+        // Evita di ingrandire la foto già aperta
+        if (foto.id === "immagineZoom") return;
 
-    document.body.style.overflow = "hidden";
+        // Evita immagini senza sorgente
+        if (!foto.src) return;
 
-});
+        // Impedisce la navigazione se la foto è un link
+        const link = foto.closest("a");
+        if (link) event.preventDefault();
 
-// CHIUSURA CON X
-chiudiZoom.addEventListener("click", function() {
+        immagineZoom.src = foto.src;
+        immagineZoom.alt = foto.alt || "Opera MR.BURN";
 
-    zoomFoto.classList.remove("attivo");
-    document.body.style.overflow = "";
+        zoomFoto.classList.add("attivo");
+        document.body.style.overflow = "hidden";
 
-});
+    });
 
-// CHIUSURA CLICCANDO SULLO SFONDO
-zoomFoto.addEventListener("click", function(event) {
-
-    if (event.target === zoomFoto) {
-
-        zoomFoto.classList.remove("attivo");
-        document.body.style.overflow = "";
-
-    }
-
-});
-
-// CHIUSURA CON ESC
-document.addEventListener("keydown", function(event) {
-
-    if (event.key === "Escape") {
+    // CHIUSURA CON X
+    chiudiZoom.addEventListener("click", function() {
 
         zoomFoto.classList.remove("attivo");
         document.body.style.overflow = "";
 
-    }
+    });
 
-});
+    // CHIUSURA CLICCANDO SULLO SFONDO
+    zoomFoto.addEventListener("click", function(event) {
 
+        if (event.target === zoomFoto) {
 
+            zoomFoto.classList.remove("attivo");
+            document.body.style.overflow = "";
+
+        }
+
+    });
+
+    // CHIUSURA CON ESC
+    document.addEventListener("keydown", function(event) {
+
+        if (event.key === "Escape") {
+
+            zoomFoto.classList.remove("attivo");
+            document.body.style.overflow = "";
+
+        }
+
+    });
+
+} else {
+
+    console.error("MR.BURN: elementi HTML dello zoom mancanti.");
+}
 </script>
 
 
