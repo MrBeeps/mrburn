@@ -224,55 +224,44 @@
 
 
 
-        /* ================================================= */
-        /* TIMER                                              */
-        /* ================================================= */
+     /* ================================================= */
+/* MR.BURN - COUNTDOWN                               */
+/* ================================================= */
 
-        .timer {
+.timer {
+    background: #292724;
+    color: #f0eee9;
+    border: 1px solid #625044;
+    border-radius: 3px;
+    padding: 16px 12px;
+    margin: 18px 0;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    line-height: 1.8;
+    box-shadow: 0 0 12px rgba(185, 67, 49, 0.12);
+    transition: background 0.3s ease;
+}
 
-            margin: 20px 0;
+.timer.giorno-zero {
+    background: #4a241c;
+    color: #ffb29e;
+    border: 1px solid #b94331;
+    box-shadow: 0 0 18px rgba(211, 75, 55, 0.25);
+}
 
-            padding: 14px;
+.timer.scaduto {
+    background: #292020;
+    color: #e68b7b;
+    border: 1px solid #67372e;
+}
 
-            text-align: center;
-
-            background: #f3eee8;
-
-            border-radius: 8px;
-
-            font-weight: bold;
-
-            font-size: 14px;
-
-        }
-
-
-        .timer.giorno-zero {
-
-            background: #fff3cd;
-
-            color: #856404;
-
-        }
-
-
-        .timer.scaduto {
-
-            background: #f2dede;
-
-            color: #a94442;
-
-        }
-
-
-        .timer.non-disponibile {
-
-            background: #eeeeee;
-
-            color: #666;
-
-        }
-
+.timer.non-disponibile {
+    background: #292724;
+    color: #aaa39a;
+    border: 1px solid #49443d;
+}
 
 
         /* ================================================= */
