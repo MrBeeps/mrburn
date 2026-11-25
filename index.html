@@ -2669,14 +2669,10 @@ setInterval(
 */
 
 const zoomFoto = document.getElementById("zoomFoto");
-
 const immagineZoom = document.getElementById("immagineZoom");
-
 const chiudiZoom = document.getElementById("chiudiZoom");
 
-
 // APERTURA ZOOM
-
 document.addEventListener("click", function(event) {
 
     const foto = event.target.closest(
@@ -2686,43 +2682,41 @@ document.addEventListener("click", function(event) {
     if (!foto) return;
 
     immagineZoom.src = foto.src;
-
-    immagineZoom.alt = foto.alt;
+    immagineZoom.alt = foto.alt || "Opera ingrandita";
 
     zoomFoto.classList.add("attivo");
 
+    document.body.style.overflow = "hidden";
+
 });
 
-
 // CHIUSURA CON X
-
 chiudiZoom.addEventListener("click", function() {
 
     zoomFoto.classList.remove("attivo");
+    document.body.style.overflow = "";
 
 });
 
-
-// CHIUSURA FUORI DALL'IMMAGINE
-
+// CHIUSURA CLICCANDO SULLO SFONDO
 zoomFoto.addEventListener("click", function(event) {
 
     if (event.target === zoomFoto) {
 
         zoomFoto.classList.remove("attivo");
+        document.body.style.overflow = "";
 
     }
 
 });
 
-
 // CHIUSURA CON ESC
-
 document.addEventListener("keydown", function(event) {
 
     if (event.key === "Escape") {
 
         zoomFoto.classList.remove("attivo");
+        document.body.style.overflow = "";
 
     }
 
