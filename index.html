@@ -142,25 +142,48 @@
 
 
 
-        /* ================================================= */
-        /* FOTO                                               */
-        /* ================================================= */
+      /* ================================================= */
+/* FOTO OPERE MR.BURN                                */
+/* ================================================= */
 
-        .foto-prodotto {
+.foto-prodotto {
 
-            display: block;
+    display: block;
 
-            width: 100%;
+    width: 100%;
 
-            height: auto !important;
+    height: 380px;
 
-            max-width: 100%;
+    max-width: 100%;
 
-            object-fit: contain;
+    object-fit: contain;
 
-            cursor: zoom-in;
+    object-position: center;
 
-        }
+    background: #151513;
+
+    padding: 12px;
+
+    cursor: zoom-in;
+
+    transition: transform 0.4s ease;
+
+}
+
+.foto-prodotto:hover {
+
+    transform: scale(1.02);
+
+}
+        @media (max-width: 600px) {
+
+    .foto-prodotto {
+
+        height: 300px;
+
+    }
+
+}
 
         /* ================================================= */
         /* CONTENUTO                                          */
