@@ -2340,7 +2340,13 @@ function aggiornaCatalogo() {
                     ".pulsante-richiesta"
                 );
 
-
+if (!timer || !pulsante) {
+    console.warn(
+        "MR.BURN: timer o pulsante mancanti",
+        prodotto
+    );
+    return;
+}
 
             /*
              * =========================================
