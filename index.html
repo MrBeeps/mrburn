@@ -2253,11 +2253,10 @@ document.addEventListener(
 function aggiornaCatalogo() {
 
 
-    const prodotti =
-        document.querySelectorAll(
-            ".prodotto"
-        );
-
+const prodotti =
+    document.querySelectorAll(
+        ".prodotto:not(.opera-cenere)"
+    );
 
     const adesso =
         new Date();
