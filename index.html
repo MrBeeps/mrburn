@@ -2058,21 +2058,13 @@ const operaSelezionata =
 ===========================================================
 */
 
+const linkInstagram = document.querySelector(
+    ".social-modal .instagram"
+);
 
-document
-    .querySelector(
-        ".social-modal .instagram"
-    )
-    .href =
-        LINK_INSTAGRAM;
-
-
-document
-    .querySelector(
-        ".social-modal .tiktok"
-    )
-    .href =
-        LINK_TIKTOK;
+if (linkInstagram) {
+    linkInstagram.href = LINK_INSTAGRAM;
+}
 
 
 
