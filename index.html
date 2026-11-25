@@ -845,6 +845,95 @@ header.hero {
 .pulsante-richiesta:hover {
     background: #d34b37;
 }
+        /* =================================
+   MODALE MR.BURN - GRAFICA
+================================= */
+
+.modal-contenuto {
+    background: #1c1c1a;
+    color: #eeeeea;
+    border: 1px solid #51463d;
+    border-radius: 4px;
+}
+
+.modal-contenuto h2 {
+    color: #d34b37;
+    letter-spacing: 2px;
+    font-size: 22px;
+    text-align: center;
+}
+
+.opera-selezionata {
+    background: #292724;
+    border: 1px solid #49443d;
+    color: #ffffff;
+    padding: 18px;
+}
+
+.nome-opera {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.prezzo-opera {
+    color: #e47761;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.testo-contatto {
+    color: #c4c0ba;
+    text-align: left;
+    line-height: 1.7;
+    margin: 20px 0;
+}
+
+.testo-contatto strong {
+    color: #ffffff;
+}
+
+.social-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social-modal a {
+    display: block;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    background: #b94331;
+    border-radius: 3px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.social-modal a:hover {
+    background: #d34b37;
+}
+
+.social-modal .email {
+    background: #33312e;
+    border: 1px solid #62574d;
+}
+
+.social-modal .email:hover {
+    background: #49443d;
+}
+
+.firma-modal {
+    color: #938b82;
+    font-size: 11px;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-top: 25px;
+}
+
+.chiudi {
+    color: #ffffff;
+}
     </style>
 
 </head>
@@ -1815,57 +1904,85 @@ mostraOperaCenere(0);
 
 
 <!-- ===================================================== -->
-<!-- MODALE                                               -->
+<!-- MODALE MR.BURN                                       -->
 <!-- ===================================================== -->
 
 <div id="modal" class="modal">
+
     <div class="modal-contenuto">
 
-        <button id="chiudiModal" class="chiudi" type="button" aria-label="Chiudi">
+        <button id="chiudiModal"
+                class="chiudi"
+                type="button"
+                aria-label="Chiudi">
             ×
         </button>
 
-        <h2>
-            RICHIEDI INFORMAZIONI
-        </h2>
+        <h2>UN'OPERA, UNA NUOVA STORIA.</h2>
 
         <div id="operaSelezionata" class="opera-selezionata">
+
             <div class="nome-opera">
                 Opera
             </div>
+
             <div class="prezzo-opera">
                 Prezzo
             </div>
+
         </div>
 
-        <div class="testo-contatto" style="text-align: left; line-height: 1.5; margin: 15px 0;">
-            Per adottare l'opera prima dello scadere contattami direttamente:<br><br>
-            <strong>Modalità di acquisto e spedizione:</strong><br>
-            • <strong>Acquisto protetto (Subito / Wallapop):</strong> su richiesta creo subito l'annuncio dedicato per gestire pagamento sicuro e spedizione tracciata.<br>
-            • <strong>Spedizione diretta:</strong> pagamento tramite PayPal con spedizione tracciata.
+        <div class="testo-contatto">
+
+            <p>
+                Hai trovato un'opera che vorresti accogliere
+                nella tua collezione?
+            </p>
+
+            <p>
+                Contattami prima che scada il suo tempo.
+                Potremo concordare insieme modalità di acquisto
+                e spedizione.
+            </p>
+
+            <p>
+                <strong>Acquisto protetto</strong><br>
+                Su richiesta posso creare un annuncio dedicato
+                su Subito o Wallapop, con pagamento sicuro
+                e spedizione tracciata.
+            </p>
+
+            <p>
+                <strong>Spedizione diretta</strong><br>
+                Pagamento tramite PayPal e spedizione tracciata.
+            </p>
+
         </div>
 
         <div class="social-modal">
-            
-            <!-- INSTAGRAM -->
-            <a href="https://www.instagram.com/mr.burn_30days" target="_blank" class="instagram">
+
+            <a href="https://www.instagram.com/mr.burn_30days"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="instagram">
                 📷 CONTATTAMI SU INSTAGRAM
             </a>
 
-            <!-- TIKTOK (nascosto finché non aggiungi il link e rimuovi display: none;) -->
-            <a href="INSERISCI_QUI_LINK_TIKTOK" target="_blank" class="tiktok" style="display: none;">
-                🎵 CONTATTAMI SU TIKTOK
-            </a>
-
-            <!-- EMAIL (nascosto finché non metti la tua email vera) -->
-            <a href="mailto:mrburnart30@gmail.com?subject=Adozione%20opera%20Mr.Burn" style="background: #333;" >
+            <a href="mailto:mrburnart30@gmail.com?subject=Adozione%20opera%20MR.BURN"
+               class="email">
                 ✉️ SCRIVIMI VIA EMAIL
             </a>
 
         </div>
 
+        <p class="firma-modal">
+            MR.BURN — NIENTE SCOMPARE DAVVERO.
+        </p>
+
     </div>
+
 </div>
+ 
 
 
 <!-- ===================================================== -->
