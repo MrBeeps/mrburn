@@ -274,6 +274,22 @@
     box-shadow: 0 0 18px rgba(211, 75, 55, 0.25);
 }
 
+/* ULTIMI 5 GIORNI */
+
+.timer.ultimi-giorni {
+    background: #211815;
+    border-color: #b94331;
+    box-shadow: 0 0 18px rgba(211,75,55,0.22);
+}
+
+.timer.ultimi-giorni .timer-avanzamento {
+    background: #e0523d;
+}
+
+.timer.ultimi-giorni .timer-numero {
+    color: #ffb29e;
+}
+
 .timer.scaduto {
     background: #292020;
     color: #e68b7b;
@@ -2475,15 +2491,24 @@ function aggiornaCatalogo() {
             ? "IL TEMPO STA FINENDO."
             : "QUEST'OPERA ASPETTA UNA NUOVA CASA.";
 
-        // STATO DEL TIMER
+ // STATO DEL TIMER
 
-        timer.classList.remove("scaduto", "non-disponibile");
+timer.classList.remove(
+    "scaduto",
+    "non-disponibile",
+    "giorno-zero",
+    "ultimi-giorni"
+);
 
-        if (giorno === 0) {
-            timer.classList.add("giorno-zero");
-        } else {
-            timer.classList.remove("giorno-zero");
-        }
+if (giorno === 0) {
+
+    timer.classList.add("giorno-zero");
+
+} else if (giorno <= 5) {
+
+    timer.classList.add("ultimi-giorni");
+
+}
 
         // VISUALIZZAZIONE
 
